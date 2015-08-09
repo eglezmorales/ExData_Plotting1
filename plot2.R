@@ -1,0 +1,5 @@
+data<-read.csv("data_plot.csv",header=TRUE)
+png(filename="./plot2.png",width = 480, height = 480, units = "px")
+date<-strptime(data$Date_time_format, format="%Y-%m-%d %H:%M:%S")
+plot(date, data$Global_active_power, type="l", ylab="Global Active Power (kilowatt)", xlab="")
+dev.off()
