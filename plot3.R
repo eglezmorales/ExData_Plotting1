@@ -1,0 +1,8 @@
+data<-read.csv("data_plot.csv",header=TRUE)
+png(filename="./plot3.png",width = 480, height = 480, units = "px")
+date<-strptime(data$Date_time_format, format="%Y-%m-%d %H:%M:%S")
+plot(date, data$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="", col="black")
+lines(date, data$Sub_metering_2, type="l", col="red")
+lines(date, data$Sub_metering_3, type="l", col="blue")
+legend("topright",pch="_", col=c("black","red","blue"), legend=c("Sub metering 1","Sub metering 2","Sub metering 3"))
+dev.off()
